@@ -1,4 +1,6 @@
 //*************************TWILIO***********************************************
+//The Twilio code is used to alert you via SMS if an unauthorized access to your
+//Imp is made. It is not necessary for door control, and is just an added feature.
 const TWILIO_ACCOUNT_SID = "" //Your SID 
 const TWILIO_AUTH_TOKEN = ""  //Your Auth Token
 const TWILIO_FROM_NUMBER = "+17175551212" // your phone no goes here
@@ -47,7 +49,9 @@ http.onrequest(function(request, response) {
     else {
         local json = "{ \"status\" : { \"doorState\" : \"Unauthorized\" }}";
         response.send(401, json);
-        send_sms(TWILIO_TO_NUMBER, "Unauthorized access to Security System attempted.");
+        //Uncomment the line below if you have a Twilio account set up
+        //and wish to use it to monitor unauthorized access.
+        //send_sms(TWILIO_TO_NUMBER, "Unauthorized access to Security System attempted.");
     }
   }
   catch (ex) {
