@@ -1,5 +1,3 @@
-//***************Distance Sensor***************
-
 //************Screen class to manage the LCD*************
 port0 <- hardware.uart1289;
 port0.configure(9600, 8, PARITY_NONE, 1, NO_CTSRTS);
@@ -75,6 +73,7 @@ class Screen {
     }
 }
 //****************End Screen Class***********************
+//***************Distance Sensor***************
 Distance <- 0;
 DistanceState <- -1;
 
@@ -172,7 +171,7 @@ DistanceSensor.configure (9600,8,PARITY_NONE,1,NO_TX,DistanceSensorEvent);
 
 doorState <- "unset";
 respondHTTP <- false;
-ID <- hardware.getimpeeid();
+
 function checkDoor() {  
     if (hardware.pin1.read() == 1 && hardware.pin2.read() == 1){
         doorState = "open"; // Both open, door is open
@@ -209,7 +208,6 @@ function pin1Changed() {
 }
 hardware.pin1.configure(DIGITAL_IN_PULLUP, pin1Changed); //Door is down switch 
 hardware.pin2.configure(DIGITAL_IN_PULLUP, pin2Changed); //Door is up switch
-
 hardware.pin9.configure(DIGITAL_OUT);
 
 imp.configure("Garage Door", [], []);
