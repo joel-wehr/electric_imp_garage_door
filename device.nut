@@ -34,6 +34,5 @@ function pin7Changed() {
 hardware.pin7.configure(DIGITAL_IN_PULLUP, pin7Changed); //Door is down switch 
 hardware.pin8.configure(DIGITAL_IN_PULLUP, pin8Changed); //Door is up switch
 hardware.pin9.configure(DIGITAL_OUT);
-imp.configure("Garage Door", [], []);
 hardware.pin9.write(0);
 server.log(checkDoor());
