@@ -210,7 +210,6 @@ hardware.pin1.configure(DIGITAL_IN_PULLUP, pin1Changed); //Door is down switch
 hardware.pin2.configure(DIGITAL_IN_PULLUP, pin2Changed); //Door is up switch
 hardware.pin9.configure(DIGITAL_OUT);
 
-imp.configure("Garage Door", [], []);
 screen <- Screen(port0);
 screen.set_contrast(200);
 screen.clear_screen();
